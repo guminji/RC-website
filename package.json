@@ -1,0 +1,11 @@
+{
+  "name": "RC-website",
+  "version": "0.0.1",
+  "description":"RC font-end project",
+  "dependencies":{
+    "express": "~4.13.1"
+  },
+  "scripts":{
+    "start":""
+  }
+}
