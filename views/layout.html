@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>茸城小伙伴</title>
+    <link type="text/css" href="./files/css/common.css" rel="stylesheet">
+    <link type="text/css" href="./files/css/index.css" rel="stylesheet">
+    <script src="./files/js/libs/vue.js" ></script>
+    <script src="./files/js/jquery.js" ></script>
+    <title>宠物之家</title>
 </head>
 <body>
-亲爱的小伙伴们
+    <div id="app">
+        <div class="mainContainer">
+            <!--{{message}}-->
+            <!--<div v-for="(value,key) in pictures" class="kind">-->
+                <!--<img v-bind:src="value">-->
+                <!--<p>{{key}}</p>-->
+            <!--</div>-->
+            <form id = "informations" method = 'post'  action = './informations'>
+                <label>用户名</label><input type="text" placeholder="请输入用户名" id="username" name ="a"></br>
+                <label>密码</label><input type="text" placeholder="请输入密码" id="password" name ="b">
+                <input type="submit" value="" class="btn2"  />
+                <input type="button" value="注册" id="register">
+            </form>
+        </div>
+    </div>
 </body>
+<script src="./files/js/index.js"></script>
 </html>
