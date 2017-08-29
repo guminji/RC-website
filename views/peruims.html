@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var publicKey = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvMCkMUkh7AJqwUAecmgHZwQbiR4u7ZdOhuzoxZEhAZUjrBarfHvttwfKLFM1r2uXvuu2rrYKjpa1iUV2A4rLeHlPnT07IeelAFiUKbjOaqS1K1ByTjIFCz466B8bMRYIOA6Za5j4OcVaQvpgXWZicshHssLFCeYnj2f5XAYQFiS9It6lJ0gGJWT2YSD6WxMAV1JRCpLJE0rtV5egAqAp9UImsZDjE2mVHXCTjlQKsdi+8jRJatZFLwDqOU0RGlgmwcjdg6u511xWWaQX1G3IhSMRAjrY4FDxxYRKBGrkNBPAp34NodGWL1iEHD+GdR3wRvbIAnLNU0XDf2bEenMPzwIDAQAB';
+        var websocketurl ='https://nodejs-test.games.1768.com:7013/';
+        var token ='';
+    </script>
+    <script src="./files/js/libs/jsencrypt.js" ></script>
+    <script src="./files/js/libs/crypto.js" ></script>
+    <script src="./files/js/libs/permous.js" ></script>
+    <script src="./files/js/libs/permousdemo.js" ></script>
+    <script src="./files/js/jquery.js" ></script>
+</head>
+<body>
+    <input type="button" value="命令接口" id="cmdButton">
+</body>
+<script>
+    io.init().connect();
+    //io.connect();
+
+    //var primus = new Primus('http://localhost:3002/', {});
+//    primus.on('open', function open(data) {
+//        console.log(data);
+//    });
+//    primus.on('data', function message(data) {
+//        console.log('Received a new message from the server', data);
+//    });
+    $('#cmdButton').on('click',function(e){
+        io.post('getUserInfo',{userID:'272411063'},function(data){
+
+        })
+    })
+</script>
+</html>

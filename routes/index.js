@@ -1,66 +1,17 @@
 /**
- * Created by guminji on 2017/2/24.
+ * Created by guminji on 2017/2/24.路由文件
  */
 var express = require("express");
 var router = express.Router();
-var User = require("../dataController/user.js");
-//首页路由
-router.use('/RC',function(req,res){
-    console.log(1);
-    res.render('./layout')
-})
-//注册请求
-router.use('/informations',function(req,res){
-    //var id = '598412177a8c720ee3aa7c6e1';
-    res.writeHead(200,{'Content-Type':'text/html;charset=utf-8'});
-    //var wherestr = {'username' : req.body.username};
-    var wherestr = {'username' : req.body.username};
-
-    User.find(wherestr, function(err, res2){
-        if (err) {
-            console.log("Error:" + err);
-        }
-        else {
-            console.log('none');
-            console.log('res2'+res2);
-            if(!res2.length){
-                console.log('none1');
-                var user = new User({
-                    username : req.body.username,                 //用户账号
-                    userpwd: req.body.pwd,                            //密码
-                    userage: 37,                                //年龄
-                    logindate : new Date()                      //最近登录时间
-                });
-
-                user.save(function (err, res3) {
-
-                    if (err) {
-                        console.log("Error:" + err);
-                    }
-                    else {
-                        //console.log('none2');
-                        res.end(JSON.stringify({code:20000,Msg:'注册成功!!!'}))
-                        //console.log("Res:" + res3);
-                    }
-
-                });
-            }else{
-                var rr = {code:50000,Msg:'用户名已经被注册!!!'};
-                res.end(JSON.stringify(rr));
-            }
-            console.log("Res:" + res2);
-        }
-    })
-
-    /*User.findById(id, function(err, res2){
-        if (err) {
-            console.log("Error:" + err);
-        }
-        else {
-            console.log("Res:" + res2);
-            res.end(res2.toString());
-        }
-    })*/
-    //console.log(req.body);
-})
+//页面的访问路由
+router.use(require('./pages'));
+//中间件所有/api开头的请求都需要先经过一层token验证
+router.use(require('./auth'));
+//不需要验证的接口路由
+router.use('/unauth',require('./unauthapi'));
+//需要验证的入口
+router.use('/api',require('./authapi'));
+router.use('/api/getUserInFo',function(req,res){
+    res.end('123');
+});
 module.exports = router;

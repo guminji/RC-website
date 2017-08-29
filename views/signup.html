@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+    <link type="text/css" href="./files/css/common.css" rel="stylesheet">
+    <link type="text/css" href="./files/css/index.css" rel="stylesheet">
+    <script src="./files/js/libs/vue.js" ></script>
+    <script src="./files/js/jquery.js" ></script>
+    <title>注册</title>
+</head>
+<body>
+    <div id="app">
+        <div class="mainContainer">
+            <!--{{message}}-->
+            <!--<div v-for="(value,key) in pictures" class="kind">-->
+                <!--<img v-bind:src="value">-->
+                <!--<p>{{key}}</p>-->
+            <!--</div>-->
+            <form id = "informations" method = 'post'  action = './informations'>
+                <label>用户名</label><input type="text" placeholder="请输入用户名" id="username" name ="a"></br>
+                <label>密码</label><input type="text" placeholder="请输入密码" id="password" name ="b">
+                <input type="button" value="登录" id="login"  />
+                <input type="button" value="注册" id="signup">
+            </form>
+        </div>
+    </div>
+</body>
+<script src="./files/js/index.js"></script>
+</html>

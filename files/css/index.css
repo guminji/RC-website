@@ -1,0 +1,14 @@
+.mainContainer{
+
+}
+.mainContainer .kind{
+    width:30%;
+    float: left;
+    margin-right:5%;
+}
+.mainContainer .kind:nth-child(3n){
+    margin-right:0!important;
+}
+.mainContainer .kind img{
+    width:100%;
+}

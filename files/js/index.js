@@ -1,7 +1,7 @@
 /**
  * Created by guminji on 2017/6/4.
  */
-
+var token ='';
 var app = new Vue({
     el: '#app',
     data: {
@@ -14,21 +14,43 @@ var app = new Vue({
         }
     }
 })
-document.getElementById('register').onclick= function(){
+document.getElementById('login').onclick= function(){
     $.ajax({
-        url:'./informations',
+        url:'./unauth/login',
         type:'post',
         data:{
             username:$('#username').val(),
             pwd:$('#password').val()
         },
+        dataType:'json',
         success:function(res){
-            var res = JSON.parse(res);
+            token = res.token;
             if(res.code ===20000){
-                alert('注册成功!')
+                //token = res.token;
+                alert('登录成功!')
             }else{
-                alert('已被注册!!')
+                alert(res.msg);
             }
         }
     })
+
 }
+$('#signup').on('click',function(){
+    //window.location = './signup'
+    $.ajax({
+        url:'./api/getUserInFo',
+        type:'get',
+        dataType:'json',
+        data:{
+            token:token,
+        },
+        success:function(res){
+            if(res.code==20000){
+                alert('调用成功 token验证成功!');
+            }
+            else{
+                alert(res.msg)
+            }
+        }
+    })
+})
