@@ -1,0 +1,28 @@
+#app .content .titleContainer {
+  border-bottom: 1px solid black;
+}
+#app .content .title {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  -webkit-appearance: none;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  display: block;
+  font-size: 13px;
+  color: #262626;
+  padding: 10px 8px;
+  line-height: 16px;
+  background: white;
+  font-weight: 600;
+  outline: none;
+  border: none;
+}
+#app .content textarea {
+  outline: none;
+  border: none;
+}
+html,
+body {
+  height: 100%;
+  background: #e1e5e9;
+}
