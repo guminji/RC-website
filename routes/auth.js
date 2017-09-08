@@ -10,7 +10,7 @@ var auth = require('../auth/auth.js');
 var resMsg = require('../config/resCode.json')
 router = express.Router();
 router.use('/api',function(req,res,next){
-    var result = auth(req.query.token);
+    var result = auth(req.cookies.token);
     if(result.code ==20000){
         next();
     }else{

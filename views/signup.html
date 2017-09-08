@@ -7,27 +7,55 @@
     <meta name="format-detection" content="telephone=no">
     <meta charset="UTF-8">
     <link type="text/css" href="./files/css/common.css" rel="stylesheet">
-    <link type="text/css" href="./files/css/index.css" rel="stylesheet">
+    <link type="text/css" href="./files/css/login.css" rel="stylesheet">
     <script src="./files/js/libs/vue.js" ></script>
     <script src="./files/js/jquery.js" ></script>
-    <title>注册</title>
+    <title>登录</title>
 </head>
+<script>
+    (function () {
+        var root = document.getElementsByTagName('html')[0];
+        var NATIVE_W = 640;
+
+        function updateSize(){
+            var w = document.documentElement.clientWidth;
+            w = w > 640 ? 640 : w;
+            var cw = w / (NATIVE_W / 100);
+            root.style.fontSize = cw + 'px';
+        }
+
+        updateSize();
+
+        window.onresize = function(){updateSize();};
+    })();
+</script>
 <body>
-    <div id="app">
-        <div class="mainContainer">
-            <!--{{message}}-->
-            <!--<div v-for="(value,key) in pictures" class="kind">-->
-                <!--<img v-bind:src="value">-->
-                <!--<p>{{key}}</p>-->
-            <!--</div>-->
-            <form id = "informations" method = 'post'  action = './informations'>
-                <label>用户名</label><input type="text" placeholder="请输入用户名" id="username" name ="a"></br>
-                <label>密码</label><input type="text" placeholder="请输入密码" id="password" name ="b">
-                <input type="button" value="登录" id="login"  />
-                <input type="button" value="注册" id="signup">
-            </form>
+<div id="app">
+    <div class="container">
+        <div class="head_portrait">
+            <img src="./files/images/portrait.jpg" >
         </div>
+        <div class="allCon">
+            <div class="userid_text">
+                <i></i>
+                <input type="text" placeholder="请输入用户名" id="username">
+            </div>
+            <div class="psd_text">
+                <i></i>
+                <input type="text" placeholder="请输入密码" id="password">
+            </div>
+            <div class="Buttons">
+                <button class="loginbtn">注册</button>
+                <!--<p>现在去注册</p>-->
+            </div>
+        </div>
+
+        <!--<form id = "informations" method = 'post'  action = './informations'>
+            <input type="button" value="登录" id="login"  />
+            <input type="button" value="注册" id="signup">
+        </form>-->
     </div>
+</div>
 </body>
-<script src="./files/js/index.js"></script>
+<script src="./files/js/signup.js"></script>
 </html>

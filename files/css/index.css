@@ -1,5 +1,5 @@
 .mainContainer{
-
+    height:100%;
 }
 .mainContainer .kind{
     width:30%;
@@ -12,3 +12,4 @@
 .mainContainer .kind img{
     width:100%;
 }
+

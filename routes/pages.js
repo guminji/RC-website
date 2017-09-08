@@ -16,4 +16,12 @@ router.use('/peruims',function(req,res){
 router.use('/signup',function(req,res){
     res.render('./signup');
 })
+//发布帖子
+router.use('/publish',function(req,res){
+    res.render('./publish');
+})
+//帖子列表
+router.use('/list',function(req,res){
+    res.render('./list');
+})
 module.exports = router;

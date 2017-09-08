@@ -27,9 +27,18 @@ router.use('/aaa',function(req,res){
         }
     })
 });
+//获取用户信息
 router.use('/getUserInFo',function(req,res){
     res.end(JSON.stringify({
         code:20000,
     }));
 });
+//获取是否token通过
+router.use('/author',function(req,res){
+    res.end(JSON.stringify({
+        code:20000,
+    }));
+});
+//上传图片
+//router.use('/upload',require('../model/upload'));
 module.exports = router;

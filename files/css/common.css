@@ -38,3 +38,4 @@ body, input, button, textarea
 a{ text-decoration:none;outline:none;}
 a:hover{ cursor:pointer;}
 th, td{vertical-align:top;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}

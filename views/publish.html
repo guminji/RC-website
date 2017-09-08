@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>图片上传</title>
+    <link rel="stylesheet" href="./files/css/tinyImgUpload.css">
+    <link rel="stylesheet" href="./files/css/publish.css">
+    <link rel="stylesheet" href="./files/css/common.css">
+</head>
+<body>
+<div id="app">
+    <div class="content">
+        <div class="titleContainer">
+            <input type="text" placeholder="标题必填" class="title">
+        </div>
+        <div>
+            <textarea class="contents" style="height:80px;width:100%"></textarea>
+        </div>
+    </div>
+    <div id="upload">
+
+    </div>
+    <input type="hidden" placeholder="" class="photos">
+    <button class="submit" onclick="publish()">发布</button>
+    <button class="submited" onclick="publish()">发布2</button>
+</div>
+<script src="./files/js/tinyImgUpload.js"></script>
+<script src="./files/js/jquery.js"></script>
+<script>
+document.documentElement.style.fontSize = document.documentElement.clientWidth*0.1+'px';
+
+var options = {
+    path: '/upload',
+    onSuccess: function (res) {
+        $('.photos').val('');
+        var resulted=[];
+        var result = JSON.parse(res);
+        result.forEach(function(item,i){
+            resulted.push(item['filename']);
+        })
+        $('.photos').val(resulted);
+        publish();
+    console.log(res);
+    },
+    onFailure: function (res) {
+        //$('.photos').val()
+        console.log(res);
+    }
+}
+
+var upload = tinyImgUpload('#upload', options);
+document.getElementsByClassName('submit')[0].onclick = function (e) {
+    upload();
+}
+function publish(){
+    $.ajax({
+        url:'./unauth/publish',
+        method:'post',
+        data:{
+            title:$('.title').val(),
+            content:$('.contents').val(),
+            photos:$('.photos').val().split(',')
+        },
+        success:function(){
+            window.location = './list';
+        }
+    })
+}
+</script>
+</body>
+</html>
